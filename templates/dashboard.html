@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investible Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  {% if error %}
+    <h2>{{ error }}</h2>
+  {% else %}
+  <header>
+    <div class="top-bar">
+      <h1 class="brand-title">Investible</h1>
+      <form action="/dashboard" method="get" class="search-bar">
+        <input type="text" name="ticker" placeholder="Search another stock..." list="stock-list">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="stock-header">
+      <h2>{{ name }}</h2>
+      <p>Updated: {{ last_updated }}</p>
+      <p class="stock-summary">
+        {{ name }} is currently <strong>{{ valuation }}</strong>, sentiment is <strong>{{ sentiment }}</strong>,
+        and technical trend indicates: <strong>{{ momentum }}</strong>.
+      </p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="card valuation"><h3>Valuation</h3><p>{{ valuation }}<br>PE: {{ pe }}</p></div>
+    <div class="card sentiment"><h3>News Sentiment</h3><p>{{ sentiment }}</p></div>
+    <div class="card score"><h3>Score</h3>
+      <p style="color: {% if score_value > 7 %}green{% elif score_value > 4 %}orange{% else %}red{% endif %}; font-size: 1.5em;">{{ score }}</p>
+    </div>
+    <div class="card momentum"><h3>Technical Momentum</h3><p>{{ momentum }}</p></div>
+    <div class="card financials" style="grid-column: span 2;">
+      <h3>Financials & Sector</h3>
+      <p>Revenue Growth: {{ revenue_growth }}</p>
+      <p>Profit Growth: {{ profit_growth }}</p>
+      <p>Sector: {{ sector_name }} | Sector PE: {{ sector_pe }}</p>
+      <p>Stock PE: {{ pe }}</p>
+    </div>
+    <div class="card news"><h3>News</h3>
+      {% for n in news %}<p>• {{ n }}</p>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search | Investible</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #12121c;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #00bcd4;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .search-box {
+            width: 60%;
+            max-width: 700px;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #2c2c2e;
+            box-shadow: 0 0 50px rgba(192, 192, 192, 0.3);
+            color: white;
+            outline: none;
+        }
+
+        .search-box::placeholder {
+            color: #aaa;
+        }
+
+        .search-container form {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">INVESTIBLE</div>
+    <div class="search-container">
+        <form action="/dashboard" method="get">
+            <input type="text" name="ticker" class="search-box" placeholder="Search for a stock..." required>
+        </form>
+    </div>
+</body>
+</html>

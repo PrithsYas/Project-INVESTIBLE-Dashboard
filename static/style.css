@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.brand-title {
+    color: #00bcd4;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    width: 250px;
+}
+
+.search-bar button {
+    padding: 8px 14px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stock-header {
+    margin-bottom: 20px;
+}
+
+.cmp-text {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #cccccc;
+}
+
+.stock-summary {
+    font-size: 0.95rem;
+    color: #bbbbbb;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "valuation support sentiment"
+        "score  momentum financials"
+        "news news news";
+    gap: 20px;
+    grid-auto-rows: minmax(min-content, auto);
+}
+
+/* Grid areas */
+.card.moat {
+    grid-area: moat;
+    border-left: 4px solid #5c6bc0;
+    box-shadow: 0 0 10px #5c6bc0aa;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    margin-bottom: -8px;  /* shrink spacing if too tall */
+}
+
+.card.valuation { grid-area: valuation; }
+.card.news      { grid-area: news; }
+.card.insider   { grid-area: insider; }
+.card.pledge    { grid-area: pledge; }
+.card.sentiment { grid-area: sentiment; }
+.card.score     { grid-area: score; }
+
+/* Card Styling */
+
+
+.card {
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Glow accents */
+.card.moat      { border-left: 4px solid #5c6bc0; box-shadow: 0 0 10px #5c6bc0aa; }
+.card.valuation { border-left: 4px solid #ff9800; box-shadow: 0 0 10px #ff9800aa; }
+.card.news      { border-left: 4px solid #90a4ae; box-shadow: 0 0 10px #90a4aeaa; }
+.card.insider   { border-left: 4px solid #4caf50; box-shadow: 0 0 10px #4caf50aa; }
+.card.pledge    { border-left: 4px solid #00acc1; box-shadow: 0 0 10px #00acc1aa; }
+.card.sentiment { border-left: 4px solid #ec407a; box-shadow: 0 0 10px #ec407aaa; }
+.card.score     { border-left: 4px solid #66bb6a; box-shadow: 0 0 10px #66bb6aaa; }
+
+h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #888888;
+    font-style: italic;
+}
+.card.momentum {
+    border-left: 4px solid #42a5f5;
+    box-shadow: 0 0 10px #42a5f5aa;
+}
+.card.momentum {
+    border-left: 4px solid #42a5f5;
+    box-shadow: 0 0 10px #42a5f5aa;
+}
+
+.card.financials {
+    border-left: 4px solid #4caf50;
+    box-shadow: 0 0 10px #4caf50aa;
+}
+.card.support {
+    border-left: 4px solid #ffee58;
+    box-shadow: 0 0 10px #ffee58aa;
+}
+
